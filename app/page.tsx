@@ -1,11 +1,11 @@
-import Header from '@/components/Header'
-import Head from 'next/head'
-import Image from 'next/image'
+'use client'
 
-export default function Home() {
+import Link from "next/link"
+
+export default function Page() {
   return (
-    <>
-      index
-    </>
+    <Link href='/event'>
+      About
+    </Link>
   )
 }
