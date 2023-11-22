@@ -1,29 +1,43 @@
 "use client"
 import Link from 'next/link';
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { useParams } from 'next/navigation';
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function Page() {
-  const router = useRouter();
-  const { eventId } = router.query;
-
+  const param = useParams();
+  const eventId = param.eventId;
   const [offerItem, setOfferItem] = useState<{ id: string; title: string; summary: string; imgSrc: string }>({ id: '', title: '', summary: '', imgSrc: '' });
+  const effectRan = useRef(false)
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/offers/'+eventId);
-        const data = await response.json();
-
-        const offer = data?.offer || {};
-
-        setOfferItem(offer);
-      } catch (error) {
-        console.error('Error fetching data:', error);
+    if (effectRan.current === false){
+      const fetchData = async () => {
+        try {
+          if (!eventId) {
+            console.log("naio")
+            return; // eventIdが存在しない場合は何もしない
+          }
+          const response = await fetch('http://localhost:8000/offer/'+eventId);
+          const data = await response.json();
+  
+          const offer = data?.data?.offer || {};
+          console.log(offer)
+  
+          setOfferItem(offer);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      if (eventId) {
+        fetchData();
       }
-    };
-
-    fetchData();
-  }, []);
+    
+      return () => {
+        console.log("unmounted");
+        effectRan.current = true;
+      }
+    }
+    
+  }, [eventId]);
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
