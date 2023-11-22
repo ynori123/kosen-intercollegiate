@@ -15,11 +15,12 @@ export default function Header() {
         
         <nav className='md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center'>
           <Link href="/event" className="mr-5 hover:text-gray-900 hover:font-medium">イベント一覧</Link>
-          <Link href="/company" className="mr-5 hover:text-gray-900 hover:font-medium">会社一覧</Link>
+          <Link href="/company" className="mr-5 hover:text-gray-900 hover:font-medium">企業一覧</Link>
+          <Link href="/contact" className="mr-5 hover:text-gray-900 hover:font-medium">お問い合わせ</Link>
         </nav>
         <nav className='md:ml-auto flex flex-wrap items-center text-base justify-center'>
-          <Link href="/login" className="mr-5 hover:text-gray-900 hover:font-medium">ログイン</Link>
           <Link href="/signup" className="mr-5 hover:text-gray-900 hover:font-medium">登録</Link>
+          <Link href="/login" className="mr-5 hover:text-gray-900 hover:font-medium">ログイン</Link>
         </nav>
       </div>
     </header>
