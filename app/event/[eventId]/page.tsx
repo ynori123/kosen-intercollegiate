@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react'
 export default function Page() {
   const param = useParams();
   const eventId = param.eventId;
-  const [offerItem, setOfferItem] = useState<{ id: string; title: string; summary: string; imgSrc: string }>({ id: '', title: '', summary: '', imgSrc: '' });
+  const [offerItem, setOfferItem] = useState<{ id: string; title: string; summary: string; place: string; datetime: string;imgSrc: string }>({ id: '', title: '', datetime: '', place: '', summary: '', imgSrc: '' });
   const effectRan = useRef(false)
   useEffect(() => {
     if (effectRan.current === false){
@@ -44,6 +44,9 @@ export default function Page() {
         <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src={offerItem.imgSrc} />
         <div className="text-center lg:w-2/3 w-full">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{offerItem.title}</h1>
+          <p className="my-1 leading-relaxed">{offerItem.place}</p>
+          <p className="mb-8 leading-relaxed">{offerItem.datetime}</p>
+          
           <p className="mb-8 leading-relaxed">{offerItem.summary}</p>
           <div className="flex justify-center">
             <Link href={`/apply/${eventId}`}>
