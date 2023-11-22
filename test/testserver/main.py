@@ -136,3 +136,4 @@ def get_companies():
         "companies" : companies
         }
     }
+    return {}
