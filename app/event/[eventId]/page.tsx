@@ -47,7 +47,7 @@ export default function Page() {
           <p className="mb-8 leading-relaxed">{offerItem.summary}</p>
           <div className="flex justify-center">
             <Link href={`/apply/${eventId}`}>
-              <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">応募する</button>
+              <button className="inline-flex text-white bg-slate-800 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded text-lg">応募する</button>
             </Link>
           </div>
         </div>
