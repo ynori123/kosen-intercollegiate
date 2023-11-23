@@ -6,6 +6,9 @@ export default function page() {
   const param = useParams();
   const eventId = param.eventId;
   return (
-    <div>イベントid : {eventId}</div>
+    <div className="flex font-bold">
+      イベントid : {eventId}
+      
+    </div>
   )
 }
