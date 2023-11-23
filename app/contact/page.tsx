@@ -34,10 +34,10 @@ export default class page extends Component {
               </div>
             </div>
             <div className="p-2 w-full">
-              <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">送信</button>
+              <button className="flex mx-auto text-white bg-slate-500 border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg">送信</button>
             </div>
             <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-              <a className="text-indigo-500">example@email.com</a>
+              <a className="text-slate-800 font-bold">example@email.com</a>
               <p className="leading-normal my-5">Kosen Intercollegiate 4th-term <br />E-team
               </p>
               <span className="inline-flex">
