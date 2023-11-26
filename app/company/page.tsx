@@ -28,9 +28,9 @@ export default function page() {
 
   }, []);
   const CompanyCard = (item: { id: string; tag: [string]; name: string; imgSrc: string; }) => (
-    <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
+    <div className="lg:w-1/4 md:w-1/2 p-4 w-full" style={{height: "360px"}}>
       <Link href={`/company/${item.id}`}>
-        <div className='m-1 p-8 bg-zinc-200 rounded-lg hover:bg-zinc-300'>
+        <div className='m-1 px-8 pt-8 pb-5 h-full bg-zinc-200 rounded-lg hover:bg-zinc-300'>
         <a className="block relative h-48 rounded overflow-hidden">
           <img alt="企業" className="object-cover object-center w-full h-full block" src={item.imgSrc} />
         </a>
@@ -40,7 +40,7 @@ export default function page() {
             <button className='bg-slate-700 px-1 py-0.5 mx-1 rounded-full' key={tagItem}>{tagItem}</button>
           ))}
           </h3>
-          <h2 className="text-gray-900 title-font text-lg font-medium">{item.name}</h2>
+          <h2 className="text-gray-900 title-font text-base font-medium">{item.name}</h2>
         </div>
         </div>
       </Link>
