@@ -1,4 +1,16 @@
 # API Document
+## test
+launch test server
+```shell
+chmod 755 test.sh
+./test.sh
+```
+launch frontend 
+```shell
+npm run dev
+or 
+npm start
+```
 ## GET /offers
 
 ```json
