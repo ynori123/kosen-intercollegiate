@@ -9,7 +9,7 @@ export default function page() {
     if (effectRan.current === false){
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:8000/offers');
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/offers`);
           const data = await response.json();
           
           const offers: [{id: string, title: string, place: string, datetime: string, imgSrc: string}] = data?.data?.offers || [];

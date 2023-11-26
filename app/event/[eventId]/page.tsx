@@ -16,7 +16,7 @@ export default function Page() {
             console.log("naio")
             return; // eventIdが存在しない場合は何もしない
           }
-          const response = await fetch('http://localhost:8000/offer/'+eventId);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/offer/${eventId}`);
           const data = await response.json();
   
           const offer = data?.data?.offer || {};
