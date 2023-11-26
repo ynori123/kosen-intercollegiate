@@ -61,6 +61,14 @@ offers = [
 ]
 companies = [
     {
+        "id": "a8b8458e-37b3-400b-826a-6c62e682a091",
+        "name": "株式会社タグボートプロフェッショナル",
+        "tag" : ["タグボート"],
+        "description" : "株式会社タグボートプロフェッショナルは、日本発祥のタグボートベンチャーです．",
+        "imgSrc" : "http://localhost:8000/img/company/51aa8cb1-ae96-458a-8ff2-936e531e0b17.jpg",
+        "url" : "https://www.tagpoat-pro.co.jp/"
+    },
+    {
         "id": "58697b80-a66d-4d97-9b40-937f4a6a5d18",
         "name": "日本郵船株式会社",
         "tag" : ["商船"],
@@ -86,17 +94,17 @@ companies = [
     },
     {
         "id": "a8b8458e-37b3-400b-826a-6c62e682a091",
-        "name": "株式会社タグボートプロフェッショナル",
-        "tag" : ["タグボート"],
-        "description" : "株式会社タグボートプロフェッショナルは、日本発祥のタグボートベンチャーです．",
-        "imgSrc" : "http://localhost:8000/img/company/51aa8cb1-ae96-458a-8ff2-936e531e0b17.jpg",
-        "url" : "https://www.tagpoat-pro.co.jp/"
-    },
-    {
-        "id": "a8b8458e-37b3-400b-826a-6c62e682a091",
         "name": "Ever Blue International",
         "tag" : ["商船"],
         "description" : "Ever Blue Internationalは世界最大級の商船会社である．",
+        "imgSrc" : "http://localhost:8000/img/company/74b3d8d4-918b-43b3-a2d9-0ec3c7f8d576.jpg",
+        "url" : "https:/everblue.com/"
+    },
+    {
+        "id": "a8b8458e-37b3-400b-826a-6c62e682a091",
+        "name": "Ever Blue Domestic",
+        "tag" : ["商船"],
+        "description" : "Ever Blue Domesticは台湾国内最大級の商船会社である．",
         "imgSrc" : "http://localhost:8000/img/company/74b3d8d4-918b-43b3-a2d9-0ec3c7f8d576.jpg",
         "url" : "https:/everblue.com/"
     },
