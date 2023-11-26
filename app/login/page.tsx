@@ -37,7 +37,7 @@ export default function page() {
                   パスワード
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-blue-600 hover:text-blue-500">
+                  <a href="/forget" className="font-semibold text-blue-600 hover:text-blue-500">
                     パスワードを忘れましたか？
                   </a>
                 </div>
