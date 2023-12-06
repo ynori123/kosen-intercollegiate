@@ -79,7 +79,7 @@ async def login(username: str, password: str):
             return {
                 "code" : 0,
                 "data" : {
-                    "user" : user.get("token")
+                    "token" : user.get("token")
                 }
             }
     return {
