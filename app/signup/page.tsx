@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Icon from "public/icon.svg"
 import React, { useState } from 'react'
 
@@ -78,7 +79,7 @@ export default function page() {
                 アカウント作成
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                すでにアカウントを持っていますか？ <a href="/login" className="font-medium text-slate-600 hover:underline dark:text-slate-500">Login here</a>
+                すでにアカウントを持っていますか？ <Link href="/login" className="font-medium text-slate-600 hover:underline dark:text-slate-500">Login here</Link>
               </p>
             </div>
           </div>
