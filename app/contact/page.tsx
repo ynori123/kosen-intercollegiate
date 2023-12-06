@@ -1,13 +1,16 @@
 "use client";
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import GithubIcon from "public/github.svg";
 import Link from 'next/link';
 
 
-export default class page extends Component {
-  render() {
-    return (
-      <section className="text-gray-600 body-font relative">
+export default function page() {
+  const [demoAlert, setDemoAlert] = useState(false);
+  const handleSubmit = () => {
+    setDemoAlert(true);
+  }
+  return (
+    <section className="text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">お問い合わせ</h1>
@@ -15,6 +18,7 @@ export default class page extends Component {
         </div>
         <div className="lg:w-1/2 md:w-2/3 mx-auto">
           <div className="flex flex-wrap -m-2">
+            {demoAlert ? <div className="bg-yellow-50 w-full border-l-4 border-yellow-400 p-4">デモのためお問い合わせフォームは無効です．</div> : ""}
             <div className="p-2 w-1/2">
               <div className="relative">
                 <label htmlFor="name" className="leading-7 text-sm text-gray-600">名前・所属</label>
@@ -34,7 +38,11 @@ export default class page extends Component {
               </div>
             </div>
             <div className="p-2 w-full">
-              <button className="flex mx-auto text-white bg-slate-500 border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg">送信</button>
+              <button
+                className="flex mx-auto text-white bg-slate-500 border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg"
+                onClick={handleSubmit}>
+                送信
+              </button>
             </div>
             <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
               <a className="text-slate-800 font-bold">example@email.com</a>
@@ -50,6 +58,5 @@ export default class page extends Component {
         </div>
       </div>
     </section>
-    )
-  }
+  )
 }
