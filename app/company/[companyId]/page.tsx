@@ -1,6 +1,7 @@
 "use client"
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
+import { parseCookies } from 'nookies';
 import React, { useEffect, useRef, useState } from 'react'
 
 export default function Page() {
@@ -8,7 +9,20 @@ export default function Page() {
   const companyId = param.companyId;
   const [companyItem, setCompanyItem] = useState<{ id: string; name: string; tag: [string]; description: string; imgSrc: string; url: string; }>({ id: '', name: '', tag: [''], description: '', imgSrc: '', url: ''});
   const effectRan = useRef(false)
+  const router = useRouter();
   useEffect(() => {
+    
+  }, []);
+  useEffect(() => {
+    const cookies = parseCookies();
+    const checkCookie = async () => {
+      if (!cookies.token){
+        // ログインしていない状態
+        router.push("/login");
+      }
+    }
+    checkCookie();
+    
     if (effectRan.current === false){
       const fetchData = async () => {
         try {
@@ -16,7 +30,7 @@ export default function Page() {
             console.log("company id does not exist")
             return; // companyIdが存在しない場合は何もしない
           }
-          const response = await fetch('http://localhost:8000/company/'+companyId);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_URL}/company/${companyId}`);
           const data = await response.json();
   
           const company = data?.data?.company || {};
