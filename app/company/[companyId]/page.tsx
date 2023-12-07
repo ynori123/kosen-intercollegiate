@@ -69,11 +69,6 @@ export default function Page() {
           <a href='https://corp.supporterz.jp/' className="mb-8 leading-relaxed hover:text-slate-900">{companyItem.url}</a>
           
           <p className="mb-8 leading-relaxed">{companyItem.description}</p>
-          <div className="flex justify-center">
-            <Link href={`/apply/${companyId}`}>
-              <button className="inline-flex text-white bg-slate-800 border-0 py-2 px-6 focus:outline-none hover:bg-slate-600 rounded text-lg">応募する</button>
-            </Link>
-          </div>
         </div>
       </div>
     </section> 
