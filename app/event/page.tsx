@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function page() {
+export default function Page() {
   const [offerItems, setofferItems] = useState<{ id: string; title: string; place: string; datetime: string; imgSrc: string; }[]>([]);
   const effectRan = useRef(false)
   useEffect(() => {

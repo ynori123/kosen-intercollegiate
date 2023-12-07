@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function page() {
+export default function Page() {
   const [CompanyItems, setCompanyItems] = useState<{ id: string; name: string; tag: [string]; imgSrc: string; }[]>([]);
   const effectRan = useRef(false)
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useParams, useRouter,  } from 'next/navigation';
 import { parseCookies } from 'nookies';
 import React, { useEffect } from 'react'
 
-export default function page() {
+export default function Page() {
   const param = useParams();
   const eventId = param.eventId;
   const router = useRouter();
@@ -16,13 +16,13 @@ export default function page() {
       }
     }
     checkCookie();
-  }, []);
+  }, [router]);
   if (window.location.pathname === `/apply/${eventId}`) {
     setTimeout(() => {
       router.push("/");
     }, 3 * 1000);
   }
   return (
-    <div className='mx-auto my-5'>イベントid"{eventId}"に応募が完了しました．</div>
+    <div className='mx-auto my-5'>イベントid{eventId}に応募が完了しました．</div>
   )
 }

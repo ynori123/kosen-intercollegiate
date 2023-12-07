@@ -4,7 +4,7 @@ import { parseCookies, setCookie } from 'nookies';
 import Icon from "public/icon.svg";
 import { useRouter } from 'next/navigation';
 
-export default function page() {
+export default function Page() {
   const router = useRouter();
   useEffect(() => {
     const cookies = parseCookies();
@@ -14,7 +14,7 @@ export default function page() {
       }
     }
     checkCookie();
-  }, []);
+  }, [router]);
   interface FormData {
     email: string;
     password: string;

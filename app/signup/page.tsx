@@ -3,7 +3,7 @@ import Link from "next/link";
 import Icon from "public/icon.svg"
 import React, { useState } from 'react'
 
-export default function page() {
+export default function Page() {
   const [demoAlert, setDemoAlert] = useState(false);
 
   const handleSubmit = () => {

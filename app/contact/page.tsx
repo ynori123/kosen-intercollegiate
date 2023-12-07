@@ -4,7 +4,7 @@ import GithubIcon from "public/github.svg";
 import Link from 'next/link';
 
 
-export default function page() {
+export default function Page() {
   const [demoAlert, setDemoAlert] = useState(false);
   const handleSubmit = () => {
     setDemoAlert(true);
