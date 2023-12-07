@@ -31,9 +31,9 @@ export default function Page() {
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full" style={{height: "360px"}}>
       <Link href={`/company/${item.id}`}>
         <div className='m-1 px-8 pt-8 pb-5 h-full bg-zinc-200 rounded-lg hover:bg-zinc-300'>
-        <a className="block relative h-48 rounded overflow-hidden">
+        <div className="block relative h-48 rounded overflow-hidden">
           <img alt="企業" className="object-cover object-center w-full h-full block" src={item.imgSrc} />
-        </a>
+        </div>
         <div className="mt-4">
           <h3 className="text-gray-200 text-xs tracking-widest title-font mb-1">
           {(item.tag).map((tagItem) => (
