@@ -23,13 +23,6 @@ export default function page() {
     }, 3 * 1000);
   }
   return (
-<<<<<<< HEAD
-    <div className="flex font-bold">
-      イベントid : {eventId}
-      
-    </div>
-=======
     <div className='mx-auto my-5'>イベントid"{eventId}"に応募が完了しました．</div>
->>>>>>> master
   )
 }

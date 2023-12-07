@@ -1,15 +1,4 @@
 'use client'
-
-<<<<<<< HEAD
-import { useRouter } from "next/navigation";
-
-export default function Page() {
-  const router = useRouter();
-  router.push("/event");
-  return (
-    <>
-    </>
-=======
 import { Loading } from "@/components/Loading"
 import { useRouter } from "next/navigation"
 import { parseCookies } from "nookies";
@@ -32,6 +21,5 @@ export default function Page() {
   }, []);
   return (
     <Loading />
->>>>>>> master
   )
 }

@@ -86,25 +86,8 @@ export default function page() {
                   required
                 />
               </div>
-<<<<<<< HEAD
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  パスワード
-                </label>
-                <div className="text-sm">
-                  <a href="/forget" className="font-semibold text-blue-600 hover:text-blue-500">
-                    パスワードを忘れましたか？
-                  </a>
-                </div>
-              </div>
-              <div className="mt-2">
-=======
               <div>
                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">パスワード</label>
->>>>>>> master
                 <input
                   type="password"
                   name="password"
