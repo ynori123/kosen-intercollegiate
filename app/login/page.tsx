@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const router = useRouter();
+  const [loginFailedAlert, setLoginFailedAlert] = useState<boolean>(false);
+
   useEffect(() => {
     const cookies = parseCookies();
     const checkCookie = async () => {
@@ -37,6 +39,7 @@ export default function Page() {
       password: e.target.value,
     }));
   };
+  const [submitLoading, setSubmitLoading] = useState<boolean>(false); // ログインボタンのローディング
   const handleSubmit = () => {
     // process.env.NEXT_PUBLIC_BACK_URL
     // console.log(formData);
@@ -49,17 +52,29 @@ export default function Page() {
           },
           body: JSON.stringify(formData),
         });
-        const data: {code: number, token: string} = await response.json() || {code: 0, token: ""};
-        console.log(data);
-        if (data?.code === 0){
-          setCookie(null, "token", data?.token, {maxAge: 30*24*60*60});
-          window.location.reload();
+        if (response.ok) {
+          const data: {code: number, token: string} = await response.json() || {code: 2, token: ""};
+
+          // alert(data.code + " " + data.token);
+          if (data?.code === 0){
+            setCookie(null, "token", data?.token, { maxAge: 30 * 24 * 60 * 60 });
+            // window.location.reload();
+          }else{
+            setLoginFailedAlert(false);
+            // alert("ログインに失敗しました．");
+            setFormData({email: "", password: ""});
+          }
         }
       } catch (error) {
+        setLoginFailedAlert(true);
         console.error('Error fetching data:', error);
+        return null;
       }
     };
+    setSubmitLoading(true);
     postData();
+    setSubmitLoading(false);
+    console.log(loginFailedAlert);
   };
 
   return (
@@ -74,6 +89,7 @@ export default function Page() {
               ログイン
             </h1>
             <div className="space-y-4 md:space-y-6">
+              {loginFailedAlert && <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">ログインに失敗しました。</div> }
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">メールアドレス</label>
                 <input
@@ -100,15 +116,28 @@ export default function Page() {
                   required
                 />
               </div>
-              <button
-                type="submit"
-                onClick={handleSubmit}
-                className="w-full text-white bg-slate-600 hover:bg-slate-700 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-              >
-                ログイン
-              </button>
+              {
+                submitLoading ? 
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="w-full text-white opacity-30 bg-slate-600 hover:bg-slate-700 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  disabled
+                >
+                  ログイン中...
+                </button>
+                :
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="w-full text-white bg-slate-600 hover:bg-slate-700 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                >
+                  ログイン
+                </button>
+              }
+              
               <p className="text-sm font-light text-gray-500">
-                アカウントを持っていませんか？ <a href="/login" className="font-medium text-slate-600 hover:underline ">Login here</a>
+                アカウントを持っていませんか？ <a href="/signup" className="font-medium text-slate-600 hover:underline ">Sign up here</a>
               </p>
             </div>
           </div>
