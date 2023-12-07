@@ -50,6 +50,7 @@ export default function Page() {
           body: JSON.stringify(formData),
         });
         const data: {code: number, token: string} = await response.json() || {code: 0, token: ""};
+        console.log(data);
         if (data?.code === 0){
           setCookie(null, "token", data?.token, {maxAge: 30*24*60*60});
           window.location.reload();
