@@ -22,7 +22,6 @@ export default function Page() {
       fetchData();
     }
     return () => {
-      console.log("unmounted");
       effectRan.current = true;
     }
 

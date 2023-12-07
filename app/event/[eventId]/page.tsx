@@ -23,14 +23,14 @@ export default function Page() {
       const fetchData = async () => {
         try {
           if (!eventId) {
-            console.log("naio")
+            console.log("event i is not exist")
             return; // eventIdが存在しない場合は何もしない
           }
           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/offer/${eventId}`);
           const data = await response.json();
   
           const offer = data?.data?.offer || {};
-          console.log(offer)
+          // console.log(offer)
   
           setOfferItem(offer);
         } catch (error) {
@@ -42,7 +42,7 @@ export default function Page() {
       }
     
       return () => {
-        console.log("unmounted");
+        // console.log("unmounted");
         effectRan.current = true;
       }
     }
