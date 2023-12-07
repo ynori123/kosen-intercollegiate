@@ -30,7 +30,7 @@ export default function Page() {
             console.log("company id does not exist")
             return; // companyIdが存在しない場合は何もしない
           }
-          const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_URL}/company/${companyId}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/company/${companyId}`);
           const data = await response.json();
   
           const company = data?.data?.company || {};
