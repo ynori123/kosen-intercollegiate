@@ -58,7 +58,7 @@ export default function Page() {
           // alert(data.code + " " + data.token);
           if (data?.code === 0){
             setCookie(null, "token", data?.token, { maxAge: 30 * 24 * 60 * 60 });
-            // window.location.reload();
+            window.location.reload();
           }else{
             setLoginFailedAlert(false);
             // alert("ログインに失敗しました．");
