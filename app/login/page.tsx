@@ -39,7 +39,7 @@ export default function Page() {
   };
   const handleSubmit = () => {
     // process.env.NEXT_PUBLIC_BACK_URL
-    console.log(formData);
+    // console.log(formData);
     const postData = async () => {
       try{
         const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, {
