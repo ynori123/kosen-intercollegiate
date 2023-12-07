@@ -34,7 +34,6 @@ export default function Page() {
           const data = await response.json();
   
           const company = data?.data?.company || {};
-          console.log(company)
   
           setCompanyItem(company);
         } catch (error) {
@@ -46,7 +45,6 @@ export default function Page() {
       }
     
       return () => {
-        console.log("unmounted");
         effectRan.current = true;
       }
     }
