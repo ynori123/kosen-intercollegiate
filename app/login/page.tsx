@@ -42,7 +42,7 @@ export default function Page() {
     console.log(formData);
     const postData = async () => {
       try{
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BACK_URL}/login`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
