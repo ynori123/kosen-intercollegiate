@@ -1,14 +1,24 @@
 "use client"
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
+import { parseCookies } from 'nookies';
 import React, { useEffect, useRef, useState } from 'react'
 
 export default function Page() {
   const param = useParams();
   const eventId = param.eventId;
   const [offerItem, setOfferItem] = useState<{ id: string; title: string; summary: string; place: string; datetime: string;imgSrc: string }>({ id: '', title: '', datetime: '', place: '', summary: '', imgSrc: '' });
-  const effectRan = useRef(false)
+  const effectRan = useRef(false);
+  const router = useRouter();
   useEffect(() => {
+    const cookies = parseCookies();
+    const checkCookie = async () => {
+      if (!cookies.token){
+        // ログインしていない状態
+        router.push("/login");
+      }
+    }
+    checkCookie();
     if (effectRan.current === false){
       const fetchData = async () => {
         try {

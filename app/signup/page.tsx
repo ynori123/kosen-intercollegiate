@@ -1,10 +1,21 @@
 "use client";
 import Link from "next/link";
+<<<<<<< HEAD
 import Icon from "public/icon.svg";
 import React from 'react';
+=======
+import Icon from "public/icon.svg"
+import React, { useState } from 'react'
+>>>>>>> master
 
 export default function page() {
+  const [demoAlert, setDemoAlert] = useState(false);
+
+  const handleSubmit = () => {
+    setDemoAlert(true);
+  }
   return (
+<<<<<<< HEAD
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -21,6 +32,22 @@ export default function page() {
                 メールアドレス
               </label>
               <div className="mt-2">
+=======
+    <section className="bg-gray-50 dark:bg-gray-900">
+      <div className="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
+        <a href="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+          <Icon className="w-10 h-10"/>
+        </a>
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              アカウント作成
+            </h1>
+            <div className="space-y-4 md:space-y-6">
+              {demoAlert ? <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">デモのためアカウントの登録はできません．デモアカウントを使用してください．</div> : ""}
+              <div>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">メールアドレス</label>
+>>>>>>> master
                 <input
                   id="email"
                   name="email"
@@ -58,10 +85,16 @@ export default function page() {
             <div>
               <button
                 type="submit"
+<<<<<<< HEAD
                 className="flex w-full justify-center rounded-md bg-slate-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-slate-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+=======
+                onClick={handleSubmit}
+                className="w-full text-white bg-slate-600 hover:bg-slate-700 focus:ring-4 focus:outline-none focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-slate-600 dark:hover:bg-slate-700 dark:focus:ring-slate-800"
+>>>>>>> master
               >
                 アカウント登録
               </button>
+<<<<<<< HEAD
             </div>
           </form>
           <p className="mt-10 text-center text-sm text-gray-500">
@@ -70,6 +103,13 @@ export default function page() {
               ログイン
             </Link>
           </p>
+=======
+              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                すでにアカウントを持っていますか？ <Link href="/login" className="font-medium text-slate-600 hover:underline dark:text-slate-500">Login here</Link>
+              </p>
+            </div>
+          </div>
+>>>>>>> master
         </div>
       </div>
     </>

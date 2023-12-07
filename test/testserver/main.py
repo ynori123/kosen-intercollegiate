@@ -3,6 +3,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+# import data
+from data.offer import offers
+from data.company import companies
+from data.user import users
 
 
 app = FastAPI()
@@ -17,6 +21,7 @@ app.add_middleware(
 )
 app.mount("/img", StaticFiles(directory="img"), name="img")
 
+<<<<<<< HEAD
 offers = [
     {
         "id" : "f1c32b6c-eaa4-47d2-b4de-08df0c574098",
@@ -109,9 +114,11 @@ companies = [
         "url" : "https:/everblue.com/"
     },
 ]
+=======
+>>>>>>> master
 
 @app.get("/offers")
-def get_offers():
+async def get_offers():
     return {
     "code" : 0,
     "data" : {
@@ -122,7 +129,7 @@ def get_offers():
     }
 
 @app.get("/offer/{offer_id}")
-def get_offer(offer_id: str):
+async def get_offer(offer_id: str):
     offer = {}
     for item in offers:
         if item["id"] == offer_id:
@@ -135,7 +142,7 @@ def get_offer(offer_id: str):
     return {}
     
 @app.get("/companies")
-def get_companies():
+async def get_companies():
     return {
     "code" : 0,
     "data" : {
@@ -144,4 +151,33 @@ def get_companies():
         "companies" : companies
         }
     }
-    return {}
+
+@app.get("/company/{company_id}")
+async def get_company(company_id: str):
+    for item in companies:
+        if item.get("id") == company_id:
+            return {
+                "code" : 0,
+                "data" : {
+                    "company" : item
+                }
+            }
+    return {
+        "code" : 1,
+        "data" : {}
+    }
+
+@app.post("/login")
+async def login(username: str, password: str):
+    for user in users:
+        if user.get("email") == username and user.get(password) == password:
+            return {
+                "code" : 0,
+                "data" : {
+                    "token" : user.get("token")
+                }
+            }
+    return {
+        "code" : 1,
+        "data" : {}
+    }
