@@ -1,8 +1,5 @@
 "use client";
-import React, { Component, useState } from 'react'
-import GithubIcon from "public/github.svg";
-import Link from 'next/link';
-
+import React, { Component, useState } from 'react';
 
 export default function Page() {
   const [demoAlert, setDemoAlert] = useState(false);
@@ -45,25 +42,7 @@ export default function Page() {
               </button>
             </div>
           </div>
-          <div className="p-2 w-full">
-            <div className="relative">
-              <label htmlFor="message" className="leading-7 text-sm text-gray-600">メッセージ</label>
-              <textarea id="message" name="message" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-            </div>
-          </div>
-          <div className="p-2 w-full">
-            <button className="flex mx-auto text-white bg-slate-500 border-0 py-2 px-8 focus:outline-none hover:bg-slate-600 rounded text-lg">送信</button>
-          </div>
-          <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a className="text-slate-800 font-bold">example@email.com</a>
-            <p className="leading-normal my-5">Kosen Intercollegiate 4th-term <br />E-team
-            </p>
-            <span className="inline-flex">
-              <Link href="https://github.com/ynori123/kosen-intercollegiate" className="text-gray-500">
-                <GithubIcon className='w-10 h-10 opacity-80 hover:opacity-100' />
-              </Link>
-            </span>
-          </div>
+          
         </div>
       </div>
     </section>
