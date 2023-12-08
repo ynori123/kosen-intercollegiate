@@ -1,14 +1,17 @@
 "use client"
+import { Loading } from '@/components/Loading';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 
 export default function Page() {
   const [offerItems, setofferItems] = useState<{ id: string; title: string; place: string; datetime: string; imgSrc: string; }[]>([]);
-  const effectRan = useRef(false)
+  const effectRan = useRef(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   useEffect(() => {
     if (effectRan.current === false){
       const fetchData = async () => {
         try {
+          setIsLoading(true);
           const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/offers`);
           const data = await response.json();
           
@@ -20,12 +23,13 @@ export default function Page() {
         }
       };
       fetchData();
+      setIsLoading(false);
     }
     return () => {
       effectRan.current = true;
     }
-
   }, []);
+  
   const OfferCard = (item: { id: string; title: string; place: string; datetime: string; imgSrc: string; }) => (
     <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
       <Link href={`/event/${item.id}`}>
@@ -42,16 +46,21 @@ export default function Page() {
       </Link>
     </div>
   );
-  return (
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap -m-4 ">
-          {offerItems.map((item) => (
-            <OfferCard key={item.id} {...item} />
-          ))}
+  if (!isLoading) {
+    return (
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4 ">
+            {offerItems.map((item) => (
+              <OfferCard key={item.id} {...item} />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-    
+      </section>
+      
+    );
+  }
+  return (
+    <Loading />    
   );
 }
