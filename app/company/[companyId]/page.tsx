@@ -64,7 +64,7 @@ export default function Page() {
             <button disabled className='bg-slate-700 text-white px-1 py-0.5 mx-1 rounded-full' key={tagItem}>{tagItem}</button>
           ))}
           </div>
-          <a href='https://corp.supporterz.jp/' className="mb-8 leading-relaxed hover:text-slate-900">{companyItem.url}</a>
+          <Link href={companyItem.url} className="mb-8 leading-relaxed hover:text-slate-900">{companyItem.url}</Link>
           
           <p className="mb-8 leading-relaxed">{companyItem.description}</p>
         </div>
