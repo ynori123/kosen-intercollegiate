@@ -6,7 +6,7 @@ https://kosen-intercollegiate.vercel.app/
 ### Backend
 - FastAPI(0.103.2)
 ### Frontend
-- React/Next.js 14
+- React18 / Next.js 14.0.3
 
 ## Infrastructure
 - Frontend: Vercel
